@@ -1,0 +1,53 @@
+body {
+  font-family: system-ui;
+  background: #f2f2f2;
+}
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+button {
+  background: #2563eb;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.link-card {
+  background: #fafafa;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #eee;
+}
+.small {
+  font-size: 0.85rem;
+  color: #555;
+}
+.ctrls {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+.btn {
+  border: 1px solid #ddd;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
