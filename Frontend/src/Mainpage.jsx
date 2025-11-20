@@ -6,7 +6,6 @@ const MainPage = () => {
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Load all links
   const loadLinks = async () => {
     try {
       const data = await api.get("/links");
@@ -17,12 +16,10 @@ const MainPage = () => {
     }
   };
 
-  // Initial load
   useEffect(() => {
     loadLinks();
   }, []);
 
-  // Create short link
   const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -38,7 +35,6 @@ const MainPage = () => {
     }
   };
 
-  // Delete a link
   const deleteLink = async (code) => {
     if (!confirm("Delete this link?")) return;
     try {
@@ -49,7 +45,6 @@ const MainPage = () => {
     }
   };
 
-  // View details
   const viewDetails = async (code) => {
     try {
       const { link } = await api.get(`/link/${code}`);
@@ -71,7 +66,7 @@ const MainPage = () => {
   const incrementClick = async (code) => {
     try {
       const { data } = await api.post(`/link/${code}/click`);
-      // Update local state to reflect new clicks
+
       setLinks((prev) =>
         prev.map((l) => (l.code === code ? { ...l, clicks: data.clicks } : l))
       );
@@ -87,7 +82,6 @@ const MainPage = () => {
           URL Shortener Dashboard
         </h1>
 
-        {/* Form */}
         <form
           onSubmit={submit}
           className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10"
@@ -123,7 +117,6 @@ const MainPage = () => {
           </div>
         </form>
 
-        {/* List */}
         <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">
           Your Links
         </h2>
@@ -140,7 +133,6 @@ const MainPage = () => {
                 key={l.code}
                 className="bg-white dark:bg-gray-700 shadow-md rounded-xl p-6 border border-gray-200 dark:border-gray-600 hover:shadow-lg transition flex flex-col justify-between"
               >
-                {/* Title / URL */}
                 <div className="mb-4">
                   <h3 className="font-bold text-lg truncate text-gray-900 dark:text-gray-100">
                     {l.title || l.url}
@@ -170,7 +162,6 @@ const MainPage = () => {
                   </p>
                 </div>
 
-                {/* Action buttons */}
                 <div className="flex gap-2 mt-auto">
                   <button
                     onClick={() => viewDetails(l.code)}

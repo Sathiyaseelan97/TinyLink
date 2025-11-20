@@ -9,16 +9,14 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // your Vite frontend URL
-    credentials: true, // allow cookies/credentials
+    origin: "http://localhost:5173",
+    credentials: true,
   })
 );
 app.use(bodyParser.json());
 
-// Mount API router at /api
 app.use("/api", router);
 
-// Start server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
